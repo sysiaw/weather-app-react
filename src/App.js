@@ -1,13 +1,17 @@
 import "./App.css";
 
-function App() {
+import Search from "./Search";
+import Body from "./Body";
+import Footer from "./Footer";
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello!</h1>
-      </header>
+      <div className="container">
+        <Search />
+        <Body />
+        <Footer />
+      </div>
     </div>
   );
 }
-
-export default App;

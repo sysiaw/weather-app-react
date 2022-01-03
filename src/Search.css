@@ -1,0 +1,11 @@
+.Search #home-button {
+  font-weight: bold;
+  border: 2px solid;
+  padding: 5px 23px;
+  font-size: 18px;
+}
+
+.Search #search-button {
+  padding: 5px 23px;
+  font-size: 18px;
+}
