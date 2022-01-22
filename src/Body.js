@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-import FormatDate from "./FormatDate";
+import Today from "./Today";
 import Forecast from "./Forecast";
 
 import "./Body.css";
 
 import axios from "axios";
-import image from "./cloudy.png";
 
 export default function Body(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -26,12 +25,16 @@ export default function Body(props) {
     });
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Body">
         <div className="Search">
           <div className="row">
-            <form className="row g-3">
+            <form className="row g-3" onSubmit={handleSubmit}>
               <div className="col-auto">
                 <button
                   type="button"
@@ -73,39 +76,7 @@ export default function Body(props) {
             </div>
           </div>
           <div className="col-4">
-            <div className="Today">
-              <h2>Today</h2>
-              <div className="content">
-                <span id="date">
-                  <FormatDate date={weatherData.timezone} />
-                </span>
-                <h4>
-                  <span id="weather-description">
-                    {weatherData.description}
-                  </span>
-                </h4>
-                <img src={image} alt={weatherData.description} />
-                <h3>
-                  <span id="temperature-today">
-                    {Math.round(weatherData.temperature)}
-                  </span>{" "}
-                  °C
-                </h3>
-                <p>
-                  Max:{" "}
-                  <span id="max-temp-today">{Math.round(weatherData.max)}</span>
-                  °
-                  <br />
-                  Min:{" "}
-                  <span id="min-temp-today">{Math.round(weatherData.min)}</span>
-                  °
-                  <br />
-                  Humidity: <span id="humidity">{weatherData.humidity}</span>%
-                  <br />
-                  Wind: <span id="wind-speed">{weatherData.wind}</span> m/s
-                </p>
-              </div>
-            </div>
+            <Today data={weatherData} />
           </div>
           <div className="col-4">
             <Forecast />
