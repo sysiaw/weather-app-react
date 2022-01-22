@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import FormatDate from "./FormatDate";
 import Forecast from "./Forecast";
 
 import "./Body.css";
@@ -21,6 +22,7 @@ export default function Body(props) {
       min: response.data.main.temp_min,
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed * 10) / 10,
+      timezone: response.data.timezone * 1000,
     });
   }
 
@@ -75,8 +77,7 @@ export default function Body(props) {
               <h2>Today</h2>
               <div className="content">
                 <span id="date">
-                  <h4>3 Dec 2021 (Fri)</h4>
-                  <h4>07:13 a.m.</h4>
+                  <FormatDate date={weatherData.timezone} />
                 </span>
                 <h4>
                   <span id="weather-description">
