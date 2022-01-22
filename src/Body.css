@@ -1,0 +1,32 @@
+.Search #home-button {
+  font-weight: bold;
+  border: 2px solid;
+  padding: 5px 23px;
+  font-size: 18px;
+}
+
+.Search #search-button {
+  padding: 5px 23px;
+  font-size: 18px;
+}
+
+.Today .content {
+  margin: 15px 10px 10px 0;
+  padding: 24px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background: transparent;
+}
+
+.Today img {
+  width: 150px;
+  margin: 30px;
+}
+
+.Today h4:first-letter {
+  text-transform: capitalize;
+}
+
+.Today #date {
+  line-height: 40px;
+}
