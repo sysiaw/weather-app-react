@@ -9,6 +9,7 @@ import axios from "axios";
 
 export default function Body(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
   function showWeather(response) {
     console.log(response.data);
     setWeatherData({
@@ -25,8 +26,19 @@ export default function Body(props) {
     });
   }
 
+  function search() {
+    const apiKey = "fd6d027787299da7fc57a8ab3840d713";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showWeather);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
   }
 
   if (weatherData.ready) {
@@ -52,6 +64,7 @@ export default function Body(props) {
                   placeholder="Enter a city"
                   autoComplete="off"
                   autoFocus="on"
+                  onChange={handleCityChange}
                 />
               </div>
               <div className="col-auto">
@@ -85,10 +98,7 @@ export default function Body(props) {
       </div>
     );
   } else {
-    const apiKey = "fd6d027787299da7fc57a8ab3840d713";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(showWeather);
-
+    search();
     return "Loading...";
   }
 }
