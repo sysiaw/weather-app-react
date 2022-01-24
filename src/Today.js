@@ -18,7 +18,7 @@ export default function Today(props) {
           <span id="weather-description">{props.data.description}</span>
         </h4>
         <div className="weatherIcon">
-          <WeatherIcon code={props.data.icon} alt={props.data.description} />
+          <WeatherIcon code={props.data.icon} size={120} />
         </div>
 
         <UnitConversion

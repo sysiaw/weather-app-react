@@ -1,4 +1,4 @@
-.Forecast .forecast-content {
+.Forecast .Forecast-content {
   text-align: center;
   margin: 15px 10px 17px 0;
   padding: 16px;
@@ -7,14 +7,16 @@
   background: transparent;
 }
 
-.Forecast #forecast h3 {
+.Forecast .Forecast-temperature {
   font-size: 24px;
-  margin-top: 14px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
 }
 
-.Forecast #forecast h4 {
+.Forecast .Forecast-day {
   font-size: 26px;
-  margin-top: 14px;
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
 }
 
 .Forecast #forecast img {
