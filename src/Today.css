@@ -6,9 +6,8 @@
   background: transparent;
 }
 
-.Today img {
-  width: 150px;
-  margin: 30px;
+.Today .weatherIcon {
+  margin: 20px;
 }
 
 .Today h4:first-letter {

@@ -11,13 +11,13 @@ export default function Body(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
   function showWeather(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       city: response.data.name,
       country: response.data.sys.country,
       description: response.data.weather[0].description,
       temperature: response.data.main.temp,
+      icon: response.data.weather[0].icon,
       max: response.data.main.temp_max,
       min: response.data.main.temp_min,
       humidity: response.data.main.humidity,

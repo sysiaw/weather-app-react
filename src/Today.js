@@ -1,10 +1,9 @@
 import React from "react";
 
 import FormatDate from "./FormatDate";
+import WeatherIcon from "./WeatherIcon";
 
 import "./Today.css";
-
-import image from "./cloudy.png";
 
 export default function Today(props) {
   return (
@@ -17,7 +16,9 @@ export default function Today(props) {
         <h4>
           <span id="weather-description">{props.data.description}</span>
         </h4>
-        <img src={image} alt={props.data.description} />
+        <div className="weatherIcon">
+          <WeatherIcon code={props.data.icon} alt={props.data.description} />
+        </div>
         <h3>
           <span id="temperature-today">
             {Math.round(props.data.temperature)}
