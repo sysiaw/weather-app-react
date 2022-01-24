@@ -36,10 +36,9 @@ export default function UnitConversion(props) {
           </a>
         </h3>
         <p>
-          Max: <span id="max-temp-today">{Math.round(props.maxCelsius)}</span>
-          °
+          <span id="max-temp-today">Max: {Math.round(props.maxCelsius)}°</span>
           <br />
-          Min: <span id="min-temp-today">{Math.round(props.minCelsius)}</span>°
+          <span id="min-temp-today">Min: {Math.round(props.minCelsius)}°</span>
         </p>
       </div>
     );
@@ -56,17 +55,14 @@ export default function UnitConversion(props) {
           | °F
         </h3>
         <p>
-          Max:{" "}
           <span id="max-temp-today">
-            {Math.round(maxFahrenheitTemperature())}
+            Max: {Math.round(maxFahrenheitTemperature())}°
           </span>
-          °
           <br />
-          Min:{" "}
           <span id="min-temp-today">
-            {Math.round(minFahrenheitTemperature())}
+            {" "}
+            Min: {Math.round(minFahrenheitTemperature())}°
           </span>
-          °
         </p>
       </div>
     );

@@ -20,12 +20,13 @@ export default function Today(props) {
         <div className="weatherIcon">
           <WeatherIcon code={props.data.icon} alt={props.data.description} />
         </div>
+
+        <UnitConversion
+          celsius={props.data.temperature}
+          maxCelsius={props.data.max}
+          minCelsius={props.data.min}
+        />
         <p>
-          <UnitConversion
-            celsius={props.data.temperature}
-            maxCelsius={props.data.max}
-            minCelsius={props.data.min}
-          />
           Humidity: <span id="humidity">{props.data.humidity}</span>%
           <br />
           Wind: <span id="wind-speed">{props.data.wind}</span> m/s

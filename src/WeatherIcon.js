@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ReactSkycon, SkyconType } from "react-skycons-extended";
+import { ReactSkycon } from "react-skycons-extended";
 
 export default function WeatherIcon(props) {
   const codeMapping = {
