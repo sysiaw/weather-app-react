@@ -23,6 +23,7 @@ export default function Body(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed * 10) / 10,
       timezone: response.data.timezone * 1000,
+      coordinates: response.data.coord,
     });
   }
 
@@ -92,7 +93,7 @@ export default function Body(props) {
             <Today data={weatherData} />
           </div>
           <div className="col-4">
-            <Forecast />
+            <Forecast coords={weatherData.coordinates} />
           </div>
         </div>
       </div>
