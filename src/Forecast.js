@@ -17,7 +17,15 @@ export default function Forecast(props) {
     return (
       <div className="Forecast">
         <h2>This week</h2>
-        <WeatherForecast data={forecast[0]} />
+        {forecast.map(function (dailyForecast, index) {
+          if (index > 0 && index < 6) {
+            return (
+              <div key={index}>
+                <WeatherForecast data={dailyForecast} />
+              </div>
+            );
+          }
+        })}
       </div>
     );
   } else {
