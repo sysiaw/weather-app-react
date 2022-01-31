@@ -2,7 +2,6 @@ import React from "react";
 
 import FormatDate from "./FormatDate";
 import WeatherIcon from "./WeatherIcon";
-import UnitConversion from "./UnitConversion";
 
 import "./Today.css";
 
@@ -20,16 +19,16 @@ export default function Today(props) {
         <div className="weatherIcon">
           <WeatherIcon code={props.data.icon} size={120} />
         </div>
+        <h3>{Math.round(props.data.temperature)} °C</h3>
 
-        <UnitConversion
-          celsius={props.data.temperature}
-          maxCelsius={props.data.max}
-          minCelsius={props.data.min}
-        />
         <p>
-          Humidity: <span id="humidity">{props.data.humidity}</span>%
+          Max: {Math.round(props.data.max)}°
           <br />
-          Wind: <span id="wind-speed">{props.data.wind}</span> m/s
+          Min: {Math.round(props.data.min)}°
+          <br />
+          Humidity: {props.data.humidity}%
+          <br />
+          Wind: {props.data.wind} m/s
         </p>
       </div>
     </div>
