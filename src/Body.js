@@ -42,43 +42,59 @@ export default function Body(props) {
     setCity(event.target.value);
   }
 
+  function showLocation(position) {
+    let apiKey = "238de8ebfdbed23208cdb21bb0ba9714";
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showWeather);
+  }
+
+  function findCurrentPosition() {
+    navigator.geolocation.getCurrentPosition(showLocation);
+  }
+
+  let form = (
+    <form className="row g-3" onSubmit={handleSubmit}>
+      <div className="col-auto">
+        <button
+          type="button"
+          className="btn btn-outline-success"
+          id="home-button"
+          onClick={findCurrentPosition}
+        >
+          Home
+        </button>
+      </div>
+      <div className="col-6">
+        <input
+          type="text"
+          className="form-control"
+          id="search-bar"
+          placeholder="Enter a city"
+          autoComplete="off"
+          autoFocus="on"
+          onChange={handleCityChange}
+        />
+      </div>
+      <div className="col-auto">
+        <button
+          type="submit"
+          className="btn btn-primary mb-3"
+          id="search-button"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  );
+
   if (weatherData.ready) {
     return (
       <div className="Body">
         <div className="Search">
-          <div className="row">
-            <form className="row g-3" onSubmit={handleSubmit}>
-              <div className="col-auto">
-                <button
-                  type="button"
-                  className="btn btn-outline-success"
-                  id="home-button"
-                >
-                  Home
-                </button>
-              </div>
-              <div className="col-6">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="search-bar"
-                  placeholder="Enter a city"
-                  autoComplete="off"
-                  autoFocus="on"
-                  onChange={handleCityChange}
-                />
-              </div>
-              <div className="col-auto">
-                <button
-                  type="submit"
-                  className="btn btn-primary mb-3"
-                  id="search-button"
-                >
-                  Search
-                </button>
-              </div>
-            </form>
-          </div>
+          <div className="row">{form}</div>
         </div>
         <div className="row g-2">
           <div className="col-12">
