@@ -38,7 +38,7 @@ export default function FormatDate(props) {
   }
 
   let ampm = `a.m.`;
-  if (localTime.getUTCHours() >= 12 && localTime.getUTCHours() < 23) {
+  if (localTime.getUTCHours() >= 12 && localTime.getUTCHours() < 24) {
     ampm = `p.m.`;
   }
   return (
